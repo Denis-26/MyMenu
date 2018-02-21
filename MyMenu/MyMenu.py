@@ -6,10 +6,10 @@ class MyMenu:
         self._f_edit_screen = f_edit
         self._handlers = {}
 
-    async def handle(self, user_id, message_id, chat_id, text):
+    async def handle(self, user_id, message_id, text):
         for i in self._handlers.keys():
             if i in text:
-                return await self._handlers.get(i)(user_id, message_id, chat_id, text)
+                return await self._handlers.get(i)(user_id, message_id, text)
 
     def add_handler(self, button, func):
         self._handlers[button] = func
